@@ -16,7 +16,7 @@ var spotify = new Spotify(keys.spotify);
 //URLs 
 var spotURL;
 
-var ombdURL = "http://www.omdbapi.com/?apikey=trilogy&" + choiceTwo;
+var ombdURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + choiceTwo;
 
 var bitURL = "https://rest.bandsintown.com/artists/" + choiceTwo + "/events?app_id=trilogy"
 
@@ -87,16 +87,24 @@ function ombdMovie(){
 
     axios.get(ombdURL).then(function (response) {
 
-        title;
-        release ;
-        rating; 
-        rtRating ;
-        country; 
-        language;
-        plot;
-        actors;
+        title = response.data.Title;
+        release = response.data.Released;
+        rating = response.data.Rated; 
+        rtRating = response.data.imdbRating;
+        country = response.data.Country; 
+        language = response.data.Language;
+        plot = response.data.Plot;
+        actors = response.data.Actors;
 
-        console.log(response);
+        console.log("Title:"+title);
+        console.log("Release Date:"+ release)
+        console.log("Rating:"+rating)
+        console.log("IMDB Rating:"+rtRating)
+        console.log("Country:"+country)
+        console.log("Language:"+ language)
+        console.log("Plot:"+plot)
+        console.log("Actors:"+actors)
+
     })
 };
 
